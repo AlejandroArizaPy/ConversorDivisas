@@ -1,0 +1,46 @@
+
+<h1 class="titulo">Conversor</h1>
+<div class="Conversor">
+  
+
+  <form action="">
+    <select
+      [(ngModel)]="opcionSeleccionada"
+      name="conversion"
+      (submit)="convertirMoneda()"
+    >
+      <option value="COP">Pesos Colombianos</option>
+      <option value="USD">Dolar ámericano</option>
+    </select>
+    <br />
+    <br />
+    <label *ngIf="opcionSeleccionada === 'USD'"
+      >Ingrese el monto en dólares:</label
+    >
+    <label *ngIf="opcionSeleccionada === 'COP'"
+      >Ingrese el monto en pesos colombianos:</label
+    >
+    <input
+      type="number"
+      id="monedaOrigen"
+      placeholder="Monto a convertir"
+      [(ngModel)]="monedaOrigen"
+      name="monedaOrigen"
+    />
+    <p>El valor final de la conversión es: {{ valorFinal }}</p>
+    <p *ngIf="mensajeError">{{ mensajeError }}</p>
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <input
+      type="button"
+      value="Convertir"
+      name=""
+      id="boton-conversor"
+      (click)="convertirMoneda()"
+    />
+  </form>
+</div>
+
